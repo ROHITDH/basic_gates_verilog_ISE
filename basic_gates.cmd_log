@@ -1,0 +1,16 @@
+xst -intstyle ise -ifn "F:/Xilinx/14.7/ISE_DS/basic_gates/basic_gates.xst" -ofn "F:/Xilinx/14.7/ISE_DS/basic_gates/basic_gates.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx9-tqg144-2 basic_gates.ngc basic_gates.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o basic_gates_map.ncd basic_gates.ngd basic_gates.pcf 
+par -w -intstyle ise -ol high -mt off basic_gates_map.ncd basic_gates.ncd basic_gates.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml basic_gates.twx basic_gates.ncd -o basic_gates.twr basic_gates.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx9-tqg144-2 basic_gates.ngc basic_gates.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o basic_gates_map.ncd basic_gates.ngd basic_gates.pcf 
+par -w -intstyle ise -ol high -mt off basic_gates_map.ncd basic_gates.ncd basic_gates.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml basic_gates.twx basic_gates.ncd -o basic_gates.twr basic_gates.pcf 
+bitgen -intstyle ise -f basic_gates.ut basic_gates.ncd 
+xst -intstyle ise -ifn "F:/Xilinx/14.7/ISE_DS/basic_gates/basic_gates.xst" -ofn "F:/Xilinx/14.7/ISE_DS/basic_gates/basic_gates.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc basicgates.ucf -p xc6slx9-tqg144-2 basic_gates.ngc basic_gates.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o basic_gates_map.ncd basic_gates.ngd basic_gates.pcf 
+par -w -intstyle ise -ol high -mt off basic_gates_map.ncd basic_gates.ncd basic_gates.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml basic_gates.twx basic_gates.ncd -o basic_gates.twr basic_gates.pcf -ucf basicgates.ucf 
+bitgen -intstyle ise -f basic_gates.ut basic_gates.ncd 
